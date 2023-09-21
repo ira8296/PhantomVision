@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     Vector3 holdPosition;
 
     public Camera mainCam;
+    public GameObject wisp;
+    int maxWisps = 3;
+
     LayerMask ground;
 
     GameObject heldObj = null;
@@ -115,6 +118,21 @@ public class Player : MonoBehaviour
             {
                 glow = false;
             }
+        }
+
+        //Leave wisp
+        if (Input.GetKeyDown(KeyCode.X) && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            GameObject[] wisps = GameObject.FindGameObjectsWithTag("Wisp");
+            if(wisps.Length > maxWisps)
+            {
+                foreach(GameObject w in wisps)
+                {
+                    GameObject.Destroy(w);
+                }
+            }
+
+            GameObject.Instantiate(wisp, transform.position, Quaternion.identity);
         }
 
         Float();

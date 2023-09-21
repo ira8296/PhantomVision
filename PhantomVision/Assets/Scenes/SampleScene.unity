@@ -244,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -362,6 +362,7 @@ MonoBehaviour:
   glow: 0
   floating: 0
   mainCam: {fileID: 963194227}
+  wisp: {fileID: 3534536088737308141, guid: 884610d2ae9735a45bdc3700c0c876fd, type: 3}
 --- !u!136 &774814330
 CapsuleCollider:
   m_ObjectHideFlags: 0
