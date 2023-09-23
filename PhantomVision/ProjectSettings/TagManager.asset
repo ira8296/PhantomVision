@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Movable
   - Wisp
+  - Unphasable
   layers:
   - Default
   - TransparentFX

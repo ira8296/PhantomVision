@@ -15,10 +15,16 @@ public class Player : MonoBehaviour
     List<GameObject> interactables; //objects which the player can interact with
     List<GameObject> collectibles; //objects the player can collect
     List<GameObject> movables; //objects the player can telekinetically move
+    List<GameObject> unphasables; //objects the player cannot phase through
 
     Vector3 screenPosition;
     Vector3 worldPosition;
     Vector3 holdPosition;
+
+    float minX = 0f;
+    float maxX = 0f;
+    float minZ = 0f;
+    float maxZ = 0f;
 
     public Camera mainCam;
     public GameObject wisp;
@@ -27,6 +33,8 @@ public class Player : MonoBehaviour
     LayerMask ground;
 
     GameObject heldObj = null;
+
+    public string message = "Idle";
 
 
 
@@ -64,6 +72,34 @@ public class Player : MonoBehaviour
         {
             movables.Add(projectile);
         }
+
+        //Find and record all unphasable objects in the environment
+        unphasables = new List<GameObject>();
+        GameObject[] boundaries = GameObject.FindGameObjectsWithTag("Unphasable");
+        foreach(GameObject boundary in boundaries)
+        {
+            unphasables.Add(boundary);
+        }
+
+        foreach (GameObject u in unphasables)
+        {
+            if (u.transform.position.x < minX)
+            {
+                minX = u.transform.position.x;
+            }
+            if(u.transform.position.x > maxX)
+            {
+                maxX = u.transform.position.x;
+            }
+            if(u.transform.position.z < minZ)
+            {
+                minZ = u.transform.position.z;
+            }
+            if(u.transform.position.z > maxZ)
+            {
+                maxZ = u.transform.position.z;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -77,24 +113,28 @@ public class Player : MonoBehaviour
             position.z += speed;
             holdPosition.z += speed;
             direction.z = 1f;
+            message = "Moving";
         }
         if (Input.GetKey(KeyCode.S))
         {
             position.z -= speed;
             holdPosition.z -= speed;
             direction.z = -1f; ;
+            message = "Moving";
         }
         if (Input.GetKey(KeyCode.D))
         {
             position.x += speed;
             holdPosition.x += speed;
             direction.x = 1f;
+            message = "Moving";
         }
         if (Input.GetKey(KeyCode.A))
         {
             position.x -= speed;
             holdPosition.x -= speed;
             direction.x = -1f;
+            message = "Moving";
         }
 
         //Floating logic
@@ -121,18 +161,40 @@ public class Player : MonoBehaviour
         }
 
         //Leave wisp
-        if (Input.GetKeyDown(KeyCode.X) && Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             GameObject[] wisps = GameObject.FindGameObjectsWithTag("Wisp");
-            if(wisps.Length > maxWisps)
+            if(wisps != null)
             {
-                foreach(GameObject w in wisps)
+                if (wisps.Length > maxWisps - 1)
                 {
-                    GameObject.Destroy(w);
+                    foreach (GameObject w in wisps)
+                    {
+                        GameObject.Destroy(w);
+                    }
                 }
             }
 
             GameObject.Instantiate(wisp, transform.position, Quaternion.identity);
+            message = "Lighting";
+        }
+
+        //Check for boundaries
+        if(transform.position.x < minX)
+        {
+            position.x = minX;
+        }
+        if(transform.position.x > maxX)
+        {
+            position.x = maxX;
+        }
+        if(transform.position.z < minZ)
+        {
+            position.z = minZ;
+        }
+        if(transform.position.z > maxZ)
+        {
+            position.z = maxZ;
         }
 
         Float();
@@ -141,32 +203,8 @@ public class Player : MonoBehaviour
 
         transform.forward = direction;
         transform.position = position;
+        transform.Rotate(direction);
     }
-
-    /*void Move(string input)
-    {
-        if(input == "W")
-        {
-            position.z += speed;
-            direction.z = 1f;
-        }
-        if(input == "S")
-        {
-            position.z -= speed;
-            direction.z = -1f;
-        }
-        if(input == "A")
-        {
-            position.x -= speed;
-            direction.x = -1f;
-        }
-        if(input == "D")
-        {
-            position.x += speed;
-            direction.x = 1f;
-        }
-
-    }*/
 
     void Float() //Lets player slowly rise into the air
     {
@@ -174,13 +212,14 @@ public class Player : MonoBehaviour
         {
             position.y += speed;
             holdPosition.y += speed;
+            message = "Floating";
         }
         else
         {
             while(position.y > 1.5)
             {
-                position.y -= (speed * -10);
-                holdPosition.y -= (speed * -10);
+                position.y -= speed;
+                holdPosition.y -= speed;
             }
         }
 
@@ -215,6 +254,7 @@ public class Player : MonoBehaviour
         if(heldObj != null)
         {
             heldObj.transform.position = holdPosition;
+            message = "Levitating";
         }
     }
 
@@ -223,6 +263,7 @@ public class Player : MonoBehaviour
         if (glow)
         {
             this.GetComponent<Light>().enabled = true;
+            message = "Glowing";
         }
         else
         {
