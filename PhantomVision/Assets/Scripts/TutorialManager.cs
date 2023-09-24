@@ -79,8 +79,8 @@ public class TutorialManager : MonoBehaviour
 
         int width = 200;
         int height = 100;
-        int x = (Screen.width - width) / 2;
-        int y = (Screen.height - height);
+        float x = (Screen.width - width) / 2;
+        float y = (Screen.height - height) / 1.05f;
 
         GUI.Box(new Rect(x,y, width, height), message, style);
     }
