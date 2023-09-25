@@ -57,7 +57,7 @@ public class TutorialManager : MonoBehaviour
 
         if(index == 3)
         {
-            message = "I can glow as well. This is a shocking development, but what's this in my hands?" + '\n' +  "(Press Left Ctrl)";
+            message = "I can glow as well. This is a shocking development, but what's this in my hands?" + '\n' +  "(Press X and then Left Ctrl)";
         }
 
         if(index == 4)
@@ -76,6 +76,7 @@ public class TutorialManager : MonoBehaviour
         GUIStyle style = new GUIStyle();
         style.alignment = TextAnchor.MiddleCenter;
         style.normal.textColor = Color.white;
+        style.fontSize = 30;
 
         int width = 200;
         int height = 100;
