@@ -8,9 +8,12 @@ public class Player : MonoBehaviour
     public Vector3 direction;
     public float speed;
 
+    Vector3 shakeDir;
+    float amplitude;
+    float frequency;
+
     public bool tangible;
     public bool glow;
-    public bool floating;
 
     List<GameObject> interactables; //objects which the player can interact with
     List<GameObject> collectibles; //objects the player can collect
@@ -43,11 +46,13 @@ public class Player : MonoBehaviour
     {
         position = transform.position;
         direction = transform.forward;
+        shakeDir = transform.forward;
         holdPosition = transform.GetChild(0).transform.position; 
         speed = 0.01f;
+        amplitude = 0.1f;
+        frequency = 1f;
         tangible = true;
         glow = false;
-        floating = false;
 
         //Find and record all interactable items in the environment
         /*interactables = new List<GameObject>();
@@ -137,15 +142,9 @@ public class Player : MonoBehaviour
             message = "Moving";
         }
 
-        //Floating logic
-        if (Input.GetKey(KeyCode.Space))
-        {
-            floating = true;
-        }
-        else
-        {
-            floating = false;
-        }
+        //Phasing
+
+
 
         //Illumination
         if (Input.GetKeyDown(KeyCode.X))
@@ -208,18 +207,19 @@ public class Player : MonoBehaviour
 
     void Float() //Lets player slowly rise into the air
     {
-        if (floating)
+        if (Input.GetKey(KeyCode.T))
         {
             position.y += speed;
             holdPosition.y += speed;
             message = "Floating";
         }
-        else
+        else if(Input.GetKey(KeyCode.G))
         {
-            while(position.y > 1.5)
+            if(position.y > 1.5)
             {
                 position.y -= speed;
                 holdPosition.y -= speed;
+                message = "Descending";
             }
         }
 
@@ -269,5 +269,17 @@ public class Player : MonoBehaviour
         {
             this.GetComponent<Light>().enabled = false;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        speed = speed * 0.50f;
+        transform.position = position + shakeDir * Mathf.Sin(frequency * Time.fixedDeltaTime) * amplitude;
+        GetComponent<AudioSource>().Play();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        speed = 0.01f;
     }
 }

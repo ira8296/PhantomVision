@@ -18,12 +18,13 @@ public class TutorialManager : MonoBehaviour
         player = GameObject.Find("Player");
         playerFunc = player.GetComponent<Player>().message;
 
-        tasks = new string[5];
+        tasks = new string[6];
         tasks[0] = "Moving";
         tasks[1] = "Floating";
-        tasks[2] = "Glowing";
-        tasks[3] = "Lighting";
-        tasks[4] = "Levitating";
+        tasks[2] = "Descending";
+        tasks[3] = "Glowing";
+        tasks[4] = "Lighting";
+        tasks[5] = "Levitating";
 
         message = "What's going on? Am I a ghost? (Press WASD to move)";
     }
@@ -47,25 +48,30 @@ public class TutorialManager : MonoBehaviour
         //Decide what to say
         if(index == 1)
         {
-            message = "I can move as normal, but I can't seem to touch solid matter anymore. I also feel a little lighter..." + '\n' +  "(Press Space)";
+            message = "I can move as normal, but I can't seem to touch solid matter anymore. I also feel a little lighter..." + '\n' +  "(Press and hold T)";
         }
 
         if(index == 2)
         {
-            message = "Oh my, I can fly as well! I'm not so comfortable with something like this!" + '\n' + "(Press X)";
+            message = "Oh my, I can fly as well! I'm not so comfortable with something like this!" + '\n' + "(Press and hold G)";
         }
 
         if(index == 3)
         {
-            message = "I can glow as well. This is a shocking development, but what's this in my hands?" + '\n' +  "(Press X and then Left Ctrl)";
+            message = "I'm coming back down onto the ground. Oh good, that's a relief." + '\n' + "(Press and hold X)";
         }
 
         if(index == 4)
         {
-            message = "Will-o-the-wisps! I can create and leave wisps bright enough for others to see! " + '\n' + "What else can I do? I wonder what happens if I click on that barrel...";
+            message = "I can glow as well. This is a shocking development, but what's this in my hands?" + '\n' +  "(Press Left Ctrl)";
         }
 
         if(index == 5)
+        {
+            message = "Will-o-the-wisps! I can create and leave wisps bright enough for others to see! " + '\n' + "What else can I do? I wonder what happens if I click on that barrel...";
+        }
+
+        if(index == 6)
         {
             message = "I can levitate objects as I wish now as well. Being a ghost is fascinating, but I have a mission to accomplish." + '\n' + "(Press Esc to leave)";
         }

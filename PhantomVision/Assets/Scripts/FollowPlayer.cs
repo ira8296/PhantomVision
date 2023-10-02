@@ -9,6 +9,9 @@ public class FollowPlayer : MonoBehaviour
 
     Vector3 _followOffset;
 
+    float X;
+    float Y;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,18 @@ public class FollowPlayer : MonoBehaviour
         targetPosition.y = transform.position.y;
 
         transform.position += (targetPosition - transform.position) * followSharpness;
-        transform.LookAt(player.position);
+
+        if (Input.GetMouseButton(1))
+        {
+            transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * 1f, -Input.GetAxis("Mouse X") * 1f, 0));
+            X = transform.rotation.eulerAngles.x;
+            Y = transform.rotation.eulerAngles.y;
+            transform.rotation = Quaternion.Euler(X, Y, 0);
+            //transform.LookAt(-worldPosition);
+        }
+        else
+        {
+            transform.LookAt(player.position);
+        }
     }
 }
