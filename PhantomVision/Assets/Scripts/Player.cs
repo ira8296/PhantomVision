@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     GameObject heldObj = null;
 
     public string message = "Idle";
+    public bool moving = false;
 
 
 
@@ -159,7 +160,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        //Leave wisp
+        //Leave wisp - can only leave 3 at a time
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             GameObject[] wisps = GameObject.FindGameObjectsWithTag("Wisp");
@@ -179,7 +180,7 @@ public class Player : MonoBehaviour
         }
 
         //Check for boundaries
-        if(transform.position.x < minX)
+        /*if(transform.position.x < minX)
         {
             position.x = minX;
         }
@@ -194,7 +195,7 @@ public class Player : MonoBehaviour
         if(transform.position.z > maxZ)
         {
             position.z = maxZ;
-        }
+        }*/
 
         Float();
         Glow();
@@ -212,6 +213,7 @@ public class Player : MonoBehaviour
             position.y += speed;
             holdPosition.y += speed;
             message = "Floating";
+            moving = true;
         }
         else if(Input.GetKey(KeyCode.G))
         {
@@ -220,6 +222,7 @@ public class Player : MonoBehaviour
                 position.y -= speed;
                 holdPosition.y -= speed;
                 message = "Descending";
+                moving = true;
             }
         }
 
@@ -273,9 +276,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        speed = speed * 0.50f;
         transform.position = position + shakeDir * Mathf.Sin(frequency * Time.fixedDeltaTime) * amplitude;
-        GetComponent<AudioSource>().Play();
+
+        if(other.gameObject.tag == "Unphasable")
+        {
+    
+            
+        }
+        else
+        {
+            speed = speed * 0.5f;
+            GetComponent<AudioSource>().Play();
+        }
+
     }
 
     private void OnTriggerExit(Collider other)

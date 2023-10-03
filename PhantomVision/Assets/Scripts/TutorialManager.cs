@@ -6,6 +6,7 @@ public class TutorialManager : MonoBehaviour
 {
     public GameObject player;
     public string playerFunc;
+    public AudioSource scream;
 
     public string[] tasks;
 
@@ -17,6 +18,7 @@ public class TutorialManager : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerFunc = player.GetComponent<Player>().message;
+        scream = GetComponent<AudioSource>();
 
         tasks = new string[6];
         tasks[0] = "Moving";
