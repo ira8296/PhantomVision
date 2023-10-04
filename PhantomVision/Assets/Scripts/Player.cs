@@ -18,16 +18,11 @@ public class Player : MonoBehaviour
     List<GameObject> interactables; //objects which the player can interact with
     List<GameObject> collectibles; //objects the player can collect
     List<GameObject> movables; //objects the player can telekinetically move
-    List<GameObject> unphasables; //objects the player cannot phase through
 
     Vector3 screenPosition;
     Vector3 worldPosition;
     Vector3 holdPosition;
-
-    float minX = 0f;
-    float maxX = 0f;
-    float minZ = 0f;
-    float maxZ = 0f;
+    Vector3 lastPos;
 
     public Camera mainCam;
     public GameObject wisp;
@@ -46,10 +41,11 @@ public class Player : MonoBehaviour
     void Start()
     {
         position = transform.position;
+        lastPos = transform.position;
         direction = transform.forward;
         shakeDir = transform.forward;
         holdPosition = transform.GetChild(0).transform.position; 
-        speed = 0.01f;
+        speed = 0.05f;
         amplitude = 0.1f;
         frequency = 1f;
         tangible = true;
@@ -77,34 +73,6 @@ public class Player : MonoBehaviour
         foreach (GameObject projectile in projectiles)
         {
             movables.Add(projectile);
-        }
-
-        //Find and record all unphasable objects in the environment
-        unphasables = new List<GameObject>();
-        GameObject[] boundaries = GameObject.FindGameObjectsWithTag("Unphasable");
-        foreach(GameObject boundary in boundaries)
-        {
-            unphasables.Add(boundary);
-        }
-
-        foreach (GameObject u in unphasables)
-        {
-            if (u.transform.position.x < minX)
-            {
-                minX = u.transform.position.x;
-            }
-            if(u.transform.position.x > maxX)
-            {
-                maxX = u.transform.position.x;
-            }
-            if(u.transform.position.z < minZ)
-            {
-                minZ = u.transform.position.z;
-            }
-            if(u.transform.position.z > maxZ)
-            {
-                maxZ = u.transform.position.z;
-            }
         }
     }
 
@@ -143,7 +111,16 @@ public class Player : MonoBehaviour
             message = "Moving";
         }
 
-        //Phasing
+        //Has the player moved?
+        if(position != lastPos)
+        {
+            moving = true;
+        }
+        else
+        {
+            moving = false;
+        }
+
 
 
 
@@ -201,6 +178,7 @@ public class Player : MonoBehaviour
         Glow();
         Levitate();
 
+        lastPos = transform.position;
         transform.forward = direction;
         transform.position = position;
         transform.Rotate(direction);
@@ -213,7 +191,6 @@ public class Player : MonoBehaviour
             position.y += speed;
             holdPosition.y += speed;
             message = "Floating";
-            moving = true;
         }
         else if(Input.GetKey(KeyCode.G))
         {
@@ -222,7 +199,6 @@ public class Player : MonoBehaviour
                 position.y -= speed;
                 holdPosition.y -= speed;
                 message = "Descending";
-                moving = true;
             }
         }
 
@@ -280,7 +256,14 @@ public class Player : MonoBehaviour
 
         if(other.gameObject.tag == "Unphasable")
         {
-    
+            if (moving)
+            {
+                speed = -speed;
+            }
+            else if (!moving)
+            {
+                speed = 0.05f;
+            }
             
         }
         else
@@ -293,6 +276,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        speed = 0.01f;
+        speed = 0.05f;
     }
 }

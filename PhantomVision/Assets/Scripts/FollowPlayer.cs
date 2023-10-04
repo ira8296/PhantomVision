@@ -11,6 +11,7 @@ public class FollowPlayer : MonoBehaviour
 
     float X;
     float Y;
+    float dragSpeed = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +37,34 @@ public class FollowPlayer : MonoBehaviour
             X = transform.rotation.eulerAngles.x;
             Y = transform.rotation.eulerAngles.y;
             transform.rotation = Quaternion.Euler(X, Y, 0);
-            //transform.LookAt(-worldPosition);
+        }
+        else if (Input.GetMouseButton(2))
+        {
+            //Pan the camera
+            Vector3 newPos = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
+            Vector3 pos = transform.position;
+            if (newPos.x > 0.0f)
+            {
+                pos.x += dragSpeed;
+            }
+            else if(newPos.x < 0.0f)
+            {
+                pos.x -= dragSpeed;
+            }
+            if(newPos.y > 0.0f)
+            {
+                pos.y += dragSpeed;
+            }
+            else if(newPos.y < 0.0f)
+            {
+                pos.y -= dragSpeed;
+            }
+            pos.z = transform.position.z;
+            transform.position = pos;
         }
         else
         {
-            transform.LookAt(player.position);
+           // transform.LookAt(player.position);
         }
     }
 }
