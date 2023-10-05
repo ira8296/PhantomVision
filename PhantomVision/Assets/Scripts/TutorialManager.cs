@@ -7,6 +7,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject player;
     public string playerFunc;
     public AudioSource scream;
+    public GameObject stairway;
 
     public string[] tasks;
 
@@ -76,6 +77,13 @@ public class TutorialManager : MonoBehaviour
         if(index == 6)
         {
             message = "I can levitate objects as I wish now as well. Being a ghost is fascinating, but I have a mission to accomplish." + '\n' + "(Press Esc to leave)";
+        }
+
+        //Detect when player leaves room -- when they do, play the scream
+        if(player.transform.position.x == stairway.transform.position.x && player.transform.position.z == stairway.transform.position.z)
+        {
+            scream.Play();
+            message = "That scream -- it came from upstairs in the bedrooms! I must hurry!";
         }
     }
 

@@ -9,9 +9,8 @@ public class FollowPlayer : MonoBehaviour
 
     Vector3 _followOffset;
 
-    float X;
-    float Y;
-    float dragSpeed = 0.1f;
+    float dragSpeed = 0.5f;
+    float speedMod = 10.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +18,8 @@ public class FollowPlayer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         _followOffset = transform.position - player.position;
+
+        transform.LookAt(player.position);
     }
 
     // Update is called once per frame
@@ -27,44 +28,31 @@ public class FollowPlayer : MonoBehaviour
         Vector3 targetPosition = player.position + _followOffset;
 
         float yDiff = transform.position.y - player.position.y;
-        targetPosition.y = transform.position.y;
+        //targetPosition.y = transform.position.y;
 
         transform.position += (targetPosition - transform.position) * followSharpness;
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1)) //With right-mouse button, rotate camera around player
         {
-            transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * 1f, -Input.GetAxis("Mouse X") * 1f, 0));
-            X = transform.rotation.eulerAngles.x;
-            Y = transform.rotation.eulerAngles.y;
-            transform.rotation = Quaternion.Euler(X, Y, 0);
+
+            Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * dragSpeed, Vector3.up);
+
+            _followOffset = camTurnAngle * _followOffset;
         }
-        else if (Input.GetMouseButton(2))
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0f) //Scroll up to zoom in
         {
-            //Pan the camera
-            Vector3 newPos = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
-            Vector3 pos = transform.position;
-            if (newPos.x > 0.0f)
+            if(Camera.main.fieldOfView > 7.5)
             {
-                pos.x += dragSpeed;
+                Camera.main.fieldOfView = (Camera.main.fieldOfView / 2f);
             }
-            else if(newPos.x < 0.0f)
-            {
-                pos.x -= dragSpeed;
-            }
-            if(newPos.y > 0.0f)
-            {
-                pos.y += dragSpeed;
-            }
-            else if(newPos.y < 0.0f)
-            {
-                pos.y -= dragSpeed;
-            }
-            pos.z = transform.position.z;
-            transform.position = pos;
         }
-        else
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) //Scroll down to zoom out
         {
-           // transform.LookAt(player.position);
+            if(Camera.main.fieldOfView < 89.5) 
+            {
+                Camera.main.fieldOfView = (Camera.main.fieldOfView * 2f);
+            }
         }
+        transform.LookAt(player.position);
     }
 }
