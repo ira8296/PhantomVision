@@ -254,22 +254,25 @@ public class Player : MonoBehaviour
     {
         transform.position = position + shakeDir * Mathf.Sin(frequency * Time.fixedDeltaTime) * amplitude;
 
-        if(other.gameObject.tag == "Unphasable")
+        if(other.gameObject.tag != "AreaTrigger")
         {
-            if (moving)
+            if (other.gameObject.tag == "Unphasable")
             {
-                speed = -speed;
+                if (moving)
+                {
+                    speed = -speed;
+                }
+                else if (!moving)
+                {
+                    speed = 0.05f;
+                }
+
             }
-            else if (!moving)
+            else
             {
-                speed = 0.05f;
+                speed = speed * 0.5f;
+                GetComponent<AudioSource>().Play();
             }
-            
-        }
-        else
-        {
-            speed = speed * 0.5f;
-            GetComponent<AudioSource>().Play();
         }
 
     }

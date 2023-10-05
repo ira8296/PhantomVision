@@ -76,11 +76,13 @@ public class TutorialManager : MonoBehaviour
 
         if(index == 6)
         {
-            message = "I can levitate objects as I wish now as well. Being a ghost is fascinating, but I have a mission to accomplish." + '\n' + "(Press Esc to leave)";
+            message = "I can levitate objects as I wish now as well. Being a ghost is fascinating, but I have a mission to accomplish.";
         }
 
         //Detect when player leaves room -- when they do, play the scream
-        if(player.transform.position.x == stairway.transform.position.x && player.transform.position.z == stairway.transform.position.z)
+        string area = stairway.GetComponent<AreaTrigger>().area;
+        string sign = stairway.GetComponent<AreaTrigger>().message;
+        if(area == "Stairway" && sign == "Player has entered")
         {
             scream.Play();
             message = "That scream -- it came from upstairs in the bedrooms! I must hurry!";
