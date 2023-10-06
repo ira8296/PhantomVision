@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public Vector3 position;
     public Vector3 direction;
     public float speed;
+    public Vector3 velocity;
 
     Vector3 shakeDir;
     float amplitude;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     Vector3 lastPos;
 
     public Camera mainCam;
+    Transform camTrans;
     public GameObject wisp;
     int maxWisps = 3;
 
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
         direction = transform.forward;
         shakeDir = transform.forward;
         holdPosition = transform.GetChild(0).transform.position; 
+        camTrans = mainCam.transform;
         speed = 0.05f;
         amplitude = 0.1f;
         frequency = 1f;
@@ -80,6 +83,34 @@ public class Player : MonoBehaviour
     void Update()
     {
         ground = LayerMask.GetMask("Ground");
+
+        //Inputs
+
+        /*Vector3 movement = Vector3.zero;
+
+        float horInput = Input.GetAxis("Horizontal") * speed;
+        float verInput = Input.GetAxis("Vertical") * speed;
+        
+        //Camera direction
+        Vector3 camForward;
+        Vector3 camRight;
+
+        camForward.y = 0;
+        camRight.y = 0;
+
+        //Creating relative camera direction
+        if(horInput != 0 || verInput != 0)
+        {
+            camRight = camTrans.right;
+            camForward = Vector3.Cross(camRight, Vector3.up);
+            movement = (camRight * horInput) + (camForward * verInput);
+            movement *= speed;
+            movement = Vector3.ClampMagnitude(movement, speed);
+
+            direction = movement;
+        }
+
+        movement *= Time.deltaTime;*/
 
         //Movement input
         if (Input.GetKey(KeyCode.W))
@@ -181,7 +212,7 @@ public class Player : MonoBehaviour
         lastPos = transform.position;
         transform.forward = direction;
         transform.position = position;
-        transform.Rotate(direction);
+        transform.rotation = Quaternion.LookRotation(direction);
     }
 
     void Float() //Lets player slowly rise into the air
@@ -252,25 +283,18 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        transform.position = position + shakeDir * Mathf.Sin(frequency * Time.fixedDeltaTime) * amplitude;
+        Vector3 stop = position;
 
         if(other.gameObject.tag != "AreaTrigger")
         {
             if (other.gameObject.tag == "Unphasable")
             {
-                if (moving)
-                {
-                    speed = -speed;
-                }
-                else if (!moving)
-                {
-                    speed = 0.05f;
-                }
-
+               position = stop;
             }
             else
             {
                 speed = speed * 0.5f;
+                transform.position = position + shakeDir * Mathf.Sin(frequency * Time.fixedDeltaTime) * amplitude;
                 GetComponent<AudioSource>().Play();
             }
         }

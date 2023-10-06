@@ -6,7 +6,6 @@ public class TutorialManager : MonoBehaviour
 {
     public GameObject player;
     public string playerFunc;
-    public AudioSource scream;
     public GameObject stairway;
 
     public string[] tasks;
@@ -19,7 +18,6 @@ public class TutorialManager : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerFunc = player.GetComponent<Player>().message;
-        scream = GetComponent<AudioSource>();
 
         tasks = new string[6];
         tasks[0] = "Moving";
@@ -84,7 +82,6 @@ public class TutorialManager : MonoBehaviour
         string sign = stairway.GetComponent<AreaTrigger>().message;
         if(area == "Stairway" && sign == "Player has entered")
         {
-            scream.Play();
             message = "That scream -- it came from upstairs in the bedrooms! I must hurry!";
         }
     }

@@ -6,6 +6,7 @@ public class AreaTrigger : MonoBehaviour
 {
     public string area;
     public string message;
+    public AudioSource sound;
 
     public int playerCount;
 
@@ -13,6 +14,7 @@ public class AreaTrigger : MonoBehaviour
     void Start()
     {
         message = "";
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,11 @@ public class AreaTrigger : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             message = "Player has entered";
+
+            if(sound != null)
+            {
+                sound.Play();
+            }
         }
     }
 }
