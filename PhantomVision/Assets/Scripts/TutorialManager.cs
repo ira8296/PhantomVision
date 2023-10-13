@@ -7,6 +7,9 @@ public class TutorialManager : MonoBehaviour
     public GameObject player;
     public string playerFunc;
     public GameObject stairway;
+    public GameObject bedroom;
+    public GameObject Matt;
+    public GameObject Alex;
 
     public string[] tasks;
 
@@ -17,6 +20,8 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        Matt = GameObject.Find("Matt");
+        Alex = GameObject.Find("Alex");
         playerFunc = player.GetComponent<Player>().message;
 
         tasks = new string[6];
@@ -83,6 +88,11 @@ public class TutorialManager : MonoBehaviour
         if(area == "Stairway" && sign == "Player has entered")
         {
             message = "That scream -- it came from upstairs in the bedrooms! I must hurry!";
+        }
+
+        if (area == "Bedroom" && sign == "Player has entered")
+        {
+            message = "Alex: Oh my god, Mom has fallen victim to the curse! What are we going to do?" + '\n' + "They know about the curse, so they must be the key to breaking it." + '\n' +  "With my light I should be able to catch their attention.";
         }
     }
 
