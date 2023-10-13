@@ -29,7 +29,7 @@ public class SceneManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(scene.name == "Tutorial")
+            if(scene.name == "Tutorial" || scene.name == "End")
             {
                 BackToStart();
             }
@@ -44,6 +44,11 @@ public class SceneManager : MonoBehaviour
     void StartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
+    }
+
+    public void EndGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("End");
     }
 
     void BackToStart()

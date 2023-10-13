@@ -18,7 +18,8 @@ public class MCAI : MonoBehaviour
 
     Actions current;
     Player ghost;
-    bool inContact = false;
+    
+    public bool inContact = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,11 +57,12 @@ public class MCAI : MonoBehaviour
             speed = 0.0f;
 
             //If the ghost is glowing, that means it wants the AI to follow them
-            if (Vector3.Distance(position, player.transform.position) <= 1f)
+            if (Vector3.Distance(position, player.transform.position) <= 3f)
             {
                 if(ghost.message == "Glowing")
                 {
-                    Seek(player);
+                    //Seek(player);
+                    inContact = true;
                 }
                 else
                 {

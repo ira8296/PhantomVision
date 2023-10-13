@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     Vector3 screenPosition;
     Vector3 worldPosition;
-    Vector3 holdPosition;
+    Transform holdPosition;
 
     float maxHeight;
     float maxSpeed;
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     Transform camTrans;
     public GameObject wisp;
     int maxWisps = 3;
+    public TutorialManager levelManager;
 
     LayerMask ground;
 
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
         position = transform.position;
         direction = mainCam.transform.forward;
         shakeDir = transform.forward;
-        holdPosition = transform.GetChild(0).transform.position; 
+        holdPosition = transform.GetChild(0).transform; 
         camTrans = mainCam.transform;
         speed = 0.0f;
         amplitude = 0.1f;
@@ -64,7 +65,8 @@ public class Player : MonoBehaviour
         tangible = true;
         glow = false;
         maxHeight = 0.0f;
-        maxSpeed = 1f;
+        maxSpeed = 0.1f;
+        levelManager = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
 
         rb = GetComponent<Rigidbody>();
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -230,9 +232,9 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            speed = 0.1f;
+            speed = 0.05f;
             position.z += speed;
-            holdPosition.z += speed;
+            //holdPosition.z += speed;
             direction.z = 1f;
             message = "Moving";
             moving = true;
@@ -240,9 +242,9 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            speed = 0.1f;
+            speed = 0.05f;
             position.z -= speed;
-            holdPosition.z -= speed;
+            //holdPosition.z -= speed;
             direction.z = -1f; ;
             message = "Moving";
             moving = true;
@@ -250,9 +252,9 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            speed = 0.1f;
+            speed = 0.05f;
             position.x += speed;
-            holdPosition.x += speed;
+            //holdPosition.x += speed;
             direction.x = 1f;
             message = "Moving";
             moving = true;
@@ -260,9 +262,9 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            speed = 0.1f;
+            speed = 0.05f;
             position.x -= speed;
-            holdPosition.x -= speed;
+            //holdPosition.x -= speed;
             direction.x = -1f;
             message = "Moving";
             moving = true;
@@ -272,9 +274,9 @@ public class Player : MonoBehaviour
         {
             if(position.y < maxHeight)
             {
-                speed = 0.1f;
+                speed = 0.05f;
                 position.y += speed;
-                holdPosition.y += speed;
+                //holdPosition.y += speed;
                 //direction.y = 1f;
                 message = "Floating";
                 moving = true;
@@ -285,9 +287,9 @@ public class Player : MonoBehaviour
         {
             if(position.y > 1.5)
             {
-                speed = 0.1f;
+                speed = 0.05f;
                 position.y -= speed;
-                holdPosition.y -= speed;
+                //holdPosition.y -= speed;
                 //direction.y = -1f;
                 message = "Descending";
                 moving = true;
@@ -308,15 +310,18 @@ public class Player : MonoBehaviour
         if (message == "Moving")
         {
             transform.Translate(cameraRelativeMovement * (speed * 2), Space.World);
+            //holdPosition.Translate(new Vector3(horizontalInput, 0, verticalInput) * (speed * 2), Space.World);
             //rb.MovePosition(position);
         }
         else if (message == "Floating")
         {
             transform.Translate(new Vector3(0, speed, 0));
+            //holdPosition.Translate(new Vector3(0, speed, 0));
         }
         else if(message == "Descending")
         {
             transform.Translate(new Vector3(0, -speed, 0));
+            //holdPosition.Translate(new Vector3(0, -speed, 0));
         }
     }
 
@@ -336,7 +341,7 @@ public class Player : MonoBehaviour
 
                 foreach (GameObject m in movables)
                 {
-                    if (m == hitData.transform.gameObject || m.transform.position == holdPosition)
+                    if (m == hitData.transform.gameObject || m.transform.position == holdPosition.position)
                     {
                         heldObj = m;
                     }
@@ -350,7 +355,7 @@ public class Player : MonoBehaviour
 
             if (heldObj != null)
             {
-                heldObj.transform.position = holdPosition;
+                heldObj.transform.position = holdPosition.position;
                 message = "Levitating";
             }
         }
@@ -377,7 +382,7 @@ public class Player : MonoBehaviour
             if(other.gameObject.tag != "Unphasable" && other.gameObject.tag != "Wisp")
             {
                 speed = speed * 0.5f;
-                transform.position = position + shakeDir * Mathf.Sin(frequency * Time.fixedDeltaTime) * amplitude;
+                //transform.position = position + shakeDir * Mathf.Sin(frequency * Time.fixedDeltaTime) * amplitude;
                 GetComponent<AudioSource>().Play();
             }
             else if(other.gameObject.tag == "Unphasable")
@@ -390,7 +395,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        speed = 0.1f;
+        speed = 0.05f;
     }
 
     private void OnCollisionEnter(Collision other)

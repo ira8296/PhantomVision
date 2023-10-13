@@ -13,8 +13,10 @@ public class TutorialManager : MonoBehaviour
 
     public string[] tasks;
 
-    int index = 0;
+    public int index = 0;
     string message = "";
+
+    public float endTime = 15.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,9 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         playerFunc = player.GetComponent<Player>().message;
+
+        MCAI Matt_AI = Matt.GetComponent<MCAI>();
+        MCAI Alex_AI = Alex.GetComponent<MCAI>();
 
         if(index < tasks.Length)
         {
@@ -85,14 +90,25 @@ public class TutorialManager : MonoBehaviour
         //Detect when player leaves room -- when they do, play the scream
         string area = stairway.GetComponent<AreaTrigger>().area;
         string sign = stairway.GetComponent<AreaTrigger>().message;
+
+        //Detect when player has entered bedroom
+        string bedArea = bedroom.GetComponent<AreaTrigger>().area;
+        string bedSign = bedroom.GetComponent <AreaTrigger>().message;
+
         if(area == "Stairway" && sign == "Player has entered")
         {
             message = "That scream -- it came from upstairs in the bedrooms! I must hurry!";
         }
 
-        if (area == "Bedroom" && sign == "Player has entered")
+        if (bedArea == "Bedroom" && bedSign == "Player has entered")
         {
-            message = "Alex: Oh my god, Mom has fallen victim to the curse! What are we going to do?" + '\n' + "They know about the curse, so they must be the key to breaking it." + '\n' +  "With my light I should be able to catch their attention.";
+            message = "Alex: Oh my god, Mom has fallen victim to the curse! What are we going to do?" + '\n' + "-They know about the curse, so they're the ones I've been waiting for." + '\n' +  "With my light I should be able to catch their attention.";
+        }
+
+        if(Alex_AI.inContact || Matt_AI.inContact)
+        {
+            message = "Matt: Who or what's that glowing figure? Is she a ghost?" + '\n' + "Alex: This place just keeps getting stranger and stranger.";
+            endTime -= Time.deltaTime;
         }
     }
 
