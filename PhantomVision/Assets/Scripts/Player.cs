@@ -272,29 +272,27 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.T))
         {
-            if(position.y < maxHeight)
-            {
-                speed = 0.05f;
-                position.y += speed;
-                //holdPosition.y += speed;
-                //direction.y = 1f;
-                message = "Floating";
-                moving = true;
-                vector = Direction.Up;
-            }
+            speed = 0.05f;
+            position.y += speed;
+            //holdPosition.y += speed;
+            //direction.y = 1f;
+            message = "Floating";
+            moving = true;
+            vector = Direction.Up;
         }
         else if(Input.GetKey(KeyCode.G))
         {
             if(position.y > 1.5)
             {
-                speed = 0.05f;
-                position.y -= speed;
-                //holdPosition.y -= speed;
-                //direction.y = -1f;
-                message = "Descending";
-                moving = true;
-                vector = Direction.Down;
+                
             }
+            speed = 0.05f;
+            position.y -= speed;
+            //holdPosition.y -= speed;
+            //direction.y = -1f;
+            message = "Descending";
+            moving = true;
+            vector = Direction.Down;
         }
         else
         {
@@ -315,13 +313,19 @@ public class Player : MonoBehaviour
         }
         else if (message == "Floating")
         {
-            transform.Translate(new Vector3(0, speed, 0));
-            //holdPosition.Translate(new Vector3(0, speed, 0));
+            if(transform.position.y < maxHeight)
+            {
+                transform.Translate(new Vector3(0, speed, 0));
+                //holdPosition.Translate(new Vector3(0, speed, 0));
+            }
         }
         else if(message == "Descending")
         {
-            transform.Translate(new Vector3(0, -speed, 0));
-            //holdPosition.Translate(new Vector3(0, -speed, 0));
+            if (transform.position.y > 1.5)
+            {
+                transform.Translate(new Vector3(0, -speed, 0));
+                //holdPosition.Translate(new Vector3(0, -speed, 0));
+            }
         }
     }
 
@@ -341,16 +345,12 @@ public class Player : MonoBehaviour
 
                 foreach (GameObject m in movables)
                 {
-                    if (m == hitData.transform.gameObject || m.transform.position == holdPosition.position)
+                    if (m == hitData.transform.gameObject && heldObj == null)
                     {
                         heldObj = m;
                     }
 
                 }
-            }
-            else
-            {
-                heldObj = null;
             }
 
             if (heldObj != null)
@@ -358,6 +358,10 @@ public class Player : MonoBehaviour
                 heldObj.transform.position = holdPosition.position;
                 message = "Levitating";
             }
+        }
+        else
+        {
+            heldObj = null;
         }
     }
 

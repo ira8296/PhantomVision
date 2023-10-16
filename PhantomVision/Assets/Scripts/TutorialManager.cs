@@ -69,7 +69,7 @@ public class TutorialManager : MonoBehaviour
 
         if(index == 3)
         {
-            message = "I'm coming back down onto the ground. Oh good, that's a relief." + '\n' + "(Press and hold X)";
+            message = "I'm coming back down onto the ground. Oh good, that's a relief." + '\n' + "(Press X twice)";
         }
 
         if(index == 4)
