@@ -1,24 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MyLightSc : MonoBehaviour
-{
-    [SerializeField] AnimationCurve LightIntensity;
-    float currentTime, totalTime;
-    new Light light;
-    void Start()
-    {
-        light = GetComponent<Light>();
-        totalTime = LightIntensity.keys[LightIntensity.keys.Length - 1].time;
-    }
-
-    void Update()
-    {
-        light.intensity = LightIntensity.Evaluate(currentTime);
-        currentTime += Time.deltaTime;
-        if (currentTime >= totalTime)
-          currentTime = 0;
-
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a91cc79a4fe9b7a21822a984464d835e9270704c70a30dbc7c78836eafbe87c
+size 603

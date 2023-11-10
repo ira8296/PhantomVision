@@ -1,35 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Follower : MonoBehaviour
-{
-    public GameObject player;
-
-    public float followSharpness = 0.1f;
-
-    Vector3 _followOffset;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.Find("Player");
-
-        _followOffset = transform.position - player.transform.position;
-
-        transform.LookAt(player.transform.position);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 targetPosition = player.transform.position + _followOffset;
-
-        float yDiff = transform.position.y - player.transform.position.y;
-        //targetPosition.y = transform.position.y;
-
-        transform.position += (targetPosition - transform.position) * followSharpness;
-
-        transform.LookAt(player.transform.position);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a78ecc3a5dd5f7a7d42385d333962f5c629ff750b02613242bfbc726d846ee35
+size 1121

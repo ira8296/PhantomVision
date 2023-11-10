@@ -1,25 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Runemark.DarkFantasyKit
-{
-    [CreateAssetMenu()]
-    public class Readme : ScriptableObject
-    {
-        public Texture2D icon;
-        public string title;
-        public List<Section> sections = new List<Section>();
-        public bool loadedLayout;
-
-        [System.Serializable]
-        public class Section
-        {
-            public string heading;
-            [Multiline()]
-            public string text;
-            public string linkText;
-            public string url;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5bdbf3d8603b8dc4028cad1cce4a4267ac4432850ce3b429851defb47c949103
+size 618
