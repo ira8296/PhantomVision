@@ -1,19 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Akane_CameraScript : MonoBehaviour
-{
-    public Transform Playerposition;
-    private Vector3 cameraoffset;
-    void Start()
-    {
-        cameraoffset = Playerposition.position - transform.position;
-    }
-    void Update()
-    {
-        Vector3 newpos = Playerposition.position + cameraoffset;
-        transform.position = newpos;
-        
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a1765859cdedad2f98c7cdc6738296ae671f42ff471a0a178404fcb1370f7363
+size 464
