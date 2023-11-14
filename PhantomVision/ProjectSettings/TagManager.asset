@@ -9,6 +9,7 @@ TagManager:
   - Unphasable
   - AreaTrigger
   - Door
+  - MC
   layers:
   - Default
   - TransparentFX
