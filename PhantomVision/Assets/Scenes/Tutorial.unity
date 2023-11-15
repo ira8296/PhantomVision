@@ -137,7 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402235064707665126, guid: 95edc810c931c1c45a3ce31af861f12b, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402235064707665126, guid: 95edc810c931c1c45a3ce31af861f12b, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3402235064707665126, guid: 95edc810c931c1c45a3ce31af861f12b, type: 3}
       propertyPath: m_IsKinematic
@@ -11530,7 +11534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1866749028870940444, guid: ee887cd8ffa7f2d4ab929cb72e812921, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866749028870940444, guid: ee887cd8ffa7f2d4ab929cb72e812921, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1866749028870940444, guid: ee887cd8ffa7f2d4ab929cb72e812921, type: 3}
       propertyPath: m_IsKinematic
