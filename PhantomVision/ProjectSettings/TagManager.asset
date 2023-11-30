@@ -10,6 +10,9 @@ TagManager:
   - AreaTrigger
   - Door
   - MC
+  - Collectible
+  - Interactable
+  - Scriptable
   layers:
   - Default
   - TransparentFX
