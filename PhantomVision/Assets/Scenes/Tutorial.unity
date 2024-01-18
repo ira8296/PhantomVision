@@ -10359,17 +10359,15 @@ MonoBehaviour:
   speed: 0
   maxSpeed: 0
   velocity: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   gateways: []
   rb: {fileID: 0}
-  minDistance: 0
-  pickupDistance: 0
   obstacles: []
   wisps: []
   inContact: 0
   equipped: 0
   equippedItem: {fileID: 0}
   Matt: {fileID: 1613503864}
+  sword: {fileID: 920743307}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -25381,17 +25379,15 @@ MonoBehaviour:
   speed: 0
   maxSpeed: 0
   velocity: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   gateways: []
   rb: {fileID: 0}
-  minDistance: 0
-  pickupDistance: 0
   obstacles: []
   wisps: []
   inContact: 0
   equipped: 0
   equippedItem: {fileID: 0}
   Alex: {fileID: 691200204}
+  shield: {fileID: 1786311500}
 --- !u!1 &1614669383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1330742489359424, guid: 41849f19442adff4a951d0ff9430516c, type: 3}
