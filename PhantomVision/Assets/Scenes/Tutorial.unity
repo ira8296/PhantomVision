@@ -10359,6 +10359,7 @@ MonoBehaviour:
   speed: 0
   maxSpeed: 0
   velocity: {x: 0, y: 0, z: 0}
+  health: 0
   gateways: []
   rb: {fileID: 0}
   obstacles: []
@@ -14342,7 +14343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7971611001125329850, guid: 2cf1597d43dae7643b969e201abd583d, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7971611001125329850, guid: 2cf1597d43dae7643b969e201abd583d, type: 3}
       propertyPath: m_TagString
@@ -25379,6 +25380,7 @@ MonoBehaviour:
   speed: 0
   maxSpeed: 0
   velocity: {x: 0, y: 0, z: 0}
+  health: 0
   gateways: []
   rb: {fileID: 0}
   obstacles: []
@@ -29240,7 +29242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7849274417867043450, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7849274417867043450, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_TagString
