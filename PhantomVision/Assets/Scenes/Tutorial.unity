@@ -10368,6 +10368,7 @@ MonoBehaviour:
   equipped: 0
   equippedItem: {fileID: 0}
   Matt: {fileID: 1613503864}
+  sword: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -14350,7 +14351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7971611001125329850, guid: 2cf1597d43dae7643b969e201abd583d, type: 3}
       propertyPath: m_Name
-      value: 'Sword '
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 7971611001125329850, guid: 2cf1597d43dae7643b969e201abd583d, type: 3}
       propertyPath: m_Layer
@@ -25404,6 +25405,8 @@ MonoBehaviour:
   equipped: 0
   equippedItem: {fileID: 0}
   Alex: {fileID: 691200204}
+  shield: {fileID: 0}
+  blocking: 0
 --- !u!1 &1614669383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1330742489359424, guid: 41849f19442adff4a951d0ff9430516c, type: 3}
@@ -29204,7 +29207,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5536995377503982879, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7468632647216326848, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_RootOrder
@@ -29264,11 +29267,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7849274417867043450, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_Name
-      value: 'Shield '
+      value: Shield
       objectReference: {fileID: 0}
     - target: {fileID: 7849274417867043450, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849274417867043450, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7849274417867043450, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_TagString
