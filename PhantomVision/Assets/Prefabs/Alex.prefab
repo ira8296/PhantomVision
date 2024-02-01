@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5021767449536754159}
   - component: {fileID: 3402235064707665126}
   - component: {fileID: -9094804060702695734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Alex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +153,13 @@ MonoBehaviour:
   speed: 0
   maxSpeed: 0
   velocity: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
+  health: 0
   gateways: []
   rb: {fileID: 0}
+  obstacles: []
+  wisps: []
+  inContact: 0
+  equipped: 0
+  equippedItem: {fileID: 0}
+  trained: 0
+  training: 0
