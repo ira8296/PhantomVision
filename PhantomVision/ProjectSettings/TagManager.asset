@@ -9,6 +9,12 @@ TagManager:
   - Unphasable
   - AreaTrigger
   - Door
+  - MC
+  - Collectible
+  - Interactable
+  - Scriptable
+  - Enemy
+  - Spawn
   layers:
   - Default
   - TransparentFX

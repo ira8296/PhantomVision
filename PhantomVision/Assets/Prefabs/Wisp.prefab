@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2728887908783074742}
   - component: {fileID: 4683086445903380981}
   - component: {fileID: 5749606903676860849}
-  m_Layer: 0
+  - component: {fileID: 4412759532402855646}
+  m_Layer: 8
   m_Name: Wisp
   m_TagString: Wisp
   m_Icon: {fileID: 0}
@@ -168,3 +169,15 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &4412759532402855646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534536088737308141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b941d83e926b804b8833bc0e0506faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

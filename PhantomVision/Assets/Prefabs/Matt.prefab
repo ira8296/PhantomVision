@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1640732746529631702}
   - component: {fileID: 1866749028870940444}
   - component: {fileID: 3024967933792470432}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Matt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7003148955869998929}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -132,8 +132,8 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &3024967933792470432
@@ -153,6 +153,14 @@ MonoBehaviour:
   speed: 0
   maxSpeed: 0
   velocity: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
+  health: 0
   gateways: []
   rb: {fileID: 0}
+  obstacles: []
+  wisps: []
+  current: 0
+  inContact: 0
+  equipped: 0
+  equippedItem: {fileID: 0}
+  trained: 0
+  training: 0
