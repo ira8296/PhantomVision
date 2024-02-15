@@ -14570,15 +14570,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7343973877012988160, guid: 2cf1597d43dae7643b969e201abd583d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -88.23
+      value: -78.23
       objectReference: {fileID: 0}
     - target: {fileID: 7343973877012988160, guid: 2cf1597d43dae7643b969e201abd583d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.58
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 7343973877012988160, guid: 2cf1597d43dae7643b969e201abd583d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 39.086
+      value: 43.42
       objectReference: {fileID: 0}
     - target: {fileID: 7343973877012988160, guid: 2cf1597d43dae7643b969e201abd583d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14649,7 +14649,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.5395603, g: 0.9150943, b: 0.6321944, a: 1}
-  m_Intensity: 3
+  m_Intensity: 5
   m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -21638,7 +21638,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10650, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29764,7 +29764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7468632647216326848, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -89.4
+      value: -79.04
       objectReference: {fileID: 0}
     - target: {fileID: 7468632647216326848, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29772,7 +29772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7468632647216326848, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 39.89
+      value: 43.77
       objectReference: {fileID: 0}
     - target: {fileID: 7468632647216326848, guid: d0cdc779501f2b549bbc861e6a6d1894, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29846,7 +29846,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.5395603, g: 0.9150943, b: 0.6321944, a: 1}
-  m_Intensity: 3
+  m_Intensity: 5
   m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -36426,7 +36426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661440540230870212, guid: dd44967000c08c84685454845d3faca7, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
