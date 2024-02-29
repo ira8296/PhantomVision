@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7478685597393104846}
   - component: {fileID: 6468822008524116395}
   - component: {fileID: 4941467940238408937}
-  - component: {fileID: 6203819494496822779}
   - component: {fileID: 7478997571982372185}
   - component: {fileID: -7746393423272663808}
+  - component: {fileID: 7826175820197936966}
   m_Layer: 8
   m_Name: Ghoul
   m_TagString: Enemy
@@ -110,26 +110,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6203819494496822779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2632129698159342895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea59fa9da201744fa24ae5c5b087296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Matt: {fileID: 0}
-  Alex: {fileID: 0}
-  position: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  speed: 0
-  maxSpeed: 0
-  rb: {fileID: 0}
 --- !u!54 &7478997571982372185
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -253,3 +233,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7826175820197936966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632129698159342895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea59fa9da201744fa24ae5c5b087296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Matt: {fileID: 0}
+  Alex: {fileID: 0}
+  bulletPrefab: {fileID: 3833094510224057111, guid: 58642a0040d243847a7e2541791e6994, type: 3}
+  position: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  speed: 0
+  maxSpeed: 0
+  rb: {fileID: 0}

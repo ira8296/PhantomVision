@@ -15,6 +15,7 @@ TagManager:
   - Scriptable
   - Enemy
   - Spawn
+  - Bullet
   layers:
   - Default
   - TransparentFX
