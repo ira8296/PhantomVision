@@ -34,8 +34,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5911299834973792241}
   - {fileID: 6030318879104808379}
+  - {fileID: 5911299834973792241}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -131,16 +131,25 @@ MonoBehaviour:
   rb: {fileID: 0}
   tangible: 0
   glow: 0
+  trained: 0
+  readyToWrite: 0
   liftTime: 30
+  inventory: []
   mainCam: {fileID: 0}
   wisp: {fileID: 3534536088737308141, guid: 884610d2ae9735a45bdc3700c0c876fd, type: 3}
   levelManager: {fileID: 0}
+  wallTextPrefab: {fileID: 0}
   heldObj: {fileID: 0}
   message: Idle
   moving: 0
+  flying: 0
+  landing: 0
   holding: 0
   vector: 0
   lastVec: 0
+  Matt: {fileID: 0}
+  Alex: {fileID: 0}
+  script: 
 --- !u!108 &1085586637240430176
 Light:
   m_ObjectHideFlags: 0
