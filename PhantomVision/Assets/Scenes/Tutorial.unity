@@ -2557,7 +2557,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -17426,7 +17426,7 @@ RectTransform:
   m_GameObject: {fileID: 1018225731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7513, y: 1.7513, z: 1.7513}
+  m_LocalScale: {x: 1.2558397, y: 1.2558397, z: 1.2558397}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 258241099}
@@ -17435,7 +17435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -136.9, y: 133.9}
+  m_AnchoredPosition: {x: -89, y: 103}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018225733
@@ -21032,7 +21032,7 @@ RectTransform:
   m_GameObject: {fileID: 1208340312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0277619, y: 1.0277619, z: 1.0277619}
+  m_LocalScale: {x: 0.73699784, y: 0.73699784, z: 0.73699784}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 808164764}
@@ -21040,7 +21040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -136.70007, y: 136.4}
+  m_AnchoredPosition: {x: -88.86011, y: 103}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208340314
@@ -39035,6 +39035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Morrigan_Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 574421049569937475, guid: c04d698d8b7631047a68495c6f1f3507, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.05
+      objectReference: {fileID: 0}
     - target: {fileID: 588333497711864619, guid: c04d698d8b7631047a68495c6f1f3507, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -39171,6 +39175,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1391549835544846568, guid: f66bd43a1c349124680ebc507444b434, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391549835544846568, guid: f66bd43a1c349124680ebc507444b434, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 3937
+      objectReference: {fileID: 0}
     - target: {fileID: 4715562407446045875, guid: f66bd43a1c349124680ebc507444b434, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 2047
