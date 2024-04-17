@@ -908,8 +908,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 127857131}
   - {fileID: 1776321571}
+  - {fileID: 127857131}
   - {fileID: 1297950101}
   - {fileID: 888881363}
   - {fileID: 565616623}
@@ -937,7 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2406,6 +2406,10 @@ PrefabInstance:
     - target: {fileID: 253527688860395918, guid: 6c49d254ef283434bbb9c7ea9550288b, type: 3}
       propertyPath: m_Name
       value: Torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 3058883233619173832, guid: 6c49d254ef283434bbb9c7ea9550288b, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4983041026555324841, guid: 6c49d254ef283434bbb9c7ea9550288b, type: 3}
       propertyPath: m_Pivot.x
