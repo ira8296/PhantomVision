@@ -4787,10 +4787,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 5
+  far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4814,7 +4814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237685482}
   m_LocalRotation: {x: -0.53711313, y: 0.45990157, z: 0.45990157, w: 0.53711313}
-  m_LocalPosition: {x: 0.09, y: -0.18, z: 2.03}
+  m_LocalPosition: {x: 2.04, y: -1.84, z: 2.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5096,7 +5096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -49.885788, y: 52.28402}
+  m_AnchoredPosition: {x: -49.885803, y: 0}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258241100
@@ -6981,7 +6981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8175927956360417942, guid: da0529ba1785f4b44b0d561822516764, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8175927956360417942, guid: da0529ba1785f4b44b0d561822516764, type: 3}
       propertyPath: m_TagString
@@ -17320,17 +17320,17 @@ RectTransform:
   m_GameObject: {fileID: 1018225731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.96722263, y: 0.96722263, z: 0.96722263}
+  m_LocalScale: {x: 1.3861268, y: 1.3861268, z: 1.3861268}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 258241099}
   m_Father: {fileID: 808164764}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 492.5, y: -105}
-  m_SizeDelta: {x: -1039, y: -496}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -109, y: -189.3}
+  m_SizeDelta: {x: 98, y: 99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018225733
 MonoBehaviour:
@@ -20310,7 +20310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8175927956360417942, guid: da0529ba1785f4b44b0d561822516764, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8175927956360417942, guid: da0529ba1785f4b44b0d561822516764, type: 3}
       propertyPath: m_TagString
@@ -21040,16 +21040,16 @@ RectTransform:
   m_GameObject: {fileID: 1208340312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.567621, y: 0.567621, z: 0.567621}
+  m_LocalScale: {x: 0.8134576, y: 0.8134576, z: 0.8134576}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 808164764}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 492.60986, y: -105}
-  m_SizeDelta: {x: -889, y: -346}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -108.84216, y: -189.3}
+  m_SizeDelta: {x: 248, y: 249}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208340314
 MonoBehaviour:
@@ -39360,6 +39360,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 409208281}
     - target: {fileID: 8031151895757093712, guid: 2cc29b8e5e7e48546a4a367c432382fb, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 2800000, guid: fc5b3556d299c7b489f05da4194a20e0, type: 3}
+    - target: {fileID: 8031151895757093712, guid: 2cc29b8e5e7e48546a4a367c432382fb, type: 3}
       propertyPath: btnTexture
       value: 
       objectReference: {fileID: 2800000, guid: 8dfa7f9e1b3c0564d9e4f4e22da871b4, type: 3}
@@ -39367,6 +39371,10 @@ PrefabInstance:
       propertyPath: mouseClick
       value: 
       objectReference: {fileID: 2800000, guid: b0d5fda32aa68454c9c82a189afe6d38, type: 3}
+    - target: {fileID: 8031151895757093712, guid: 2cc29b8e5e7e48546a4a367c432382fb, type: 3}
+      propertyPath: objectives
+      value: 
+      objectReference: {fileID: 2800000, guid: cb7ee80b94433d245b2a92149e92c559, type: 3}
     - target: {fileID: 8031151895757093712, guid: 2cc29b8e5e7e48546a4a367c432382fb, type: 3}
       propertyPath: healthTexture
       value: 
