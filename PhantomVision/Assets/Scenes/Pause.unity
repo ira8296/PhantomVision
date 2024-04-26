@@ -591,12 +591,12 @@ MonoBehaviour:
 
     X - Glow
 
-    Left Ctrl - Leave wisp
+    E - Leave wisp
 
     Mouse
     - Rotate camera
 
-    Left Mouse - Interact
+    Spacebar - Interact
 
     Mouse Wheel - Zoom'
   m_isRightToLeft: 0

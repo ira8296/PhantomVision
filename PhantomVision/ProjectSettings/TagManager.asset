@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - Spawn
   - Bullet
+  - MovieCamera
   layers:
   - Default
   - TransparentFX
