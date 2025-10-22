@@ -290,6 +290,7 @@ MonoBehaviour:
   maxSpeed: 0
   velocity: {x: 0, y: 0, z: 0}
   health: 0
+  maxHealth: 0
   gateways: []
   rb: {fileID: 0}
   frictionlessMaterial: {fileID: 0}
@@ -311,7 +312,7 @@ MonoBehaviour:
   defense: 0
   Matt: {fileID: 0}
   sword: {fileID: 0}
-  flyingSlashPrefab: {fileID: 3736875963511043379, guid: 70df345dc143c084ebee8379e56f8668, type: 3}
+  flyingSlashPrefab: {fileID: 7103240810369396014, guid: 70df345dc143c084ebee8379e56f8668, type: 3}
 --- !u!114 &1545223381002892739
 MonoBehaviour:
   m_ObjectHideFlags: 0
